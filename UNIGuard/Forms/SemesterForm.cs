@@ -23,21 +23,23 @@ namespace UNIGuard.Forms
         private async void ConfirmButton_Click(object sender, EventArgs e)
         {
             await saveSemesterAsync();
+            MessageBox.Show("Semester successfully added.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
         }
 
         private async Task saveSemesterAsync()
         {
-            using (var writer = new StreamWriter(Environment.CurrentDirectory + "\\Data\\SemesterData.csv", true))
+            var path = Environment.CurrentDirectory + "\\Data\\SemesterData.csv";
+            using (var writer = new StreamWriter(path, true))
             {
-                await writer.WriteLineAsync($"{startDatePicker.Value.Day}.{startDatePicker.Value.Month}" +
-                    $".{startDatePicker.Value.Year},{endDatePicker.Value.Day}.{endDatePicker.Value.Month}" +
-                    $".{endDatePicker.Value.Year}");
+                await writer.WriteLineAsync($"{semesterType.Text},{startDatePicker.Value.ToShortDateString()}" +
+                    $",{endDatePicker.Value.ToShortDateString()}");
             }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void startDatePicker_ValueChanged(object sender, EventArgs e)
@@ -62,6 +64,13 @@ namespace UNIGuard.Forms
                 buttonConfirm.Enabled = false;
                 errorLabel.Visible = true;
             }
+        }
+
+
+
+        private void SemesterForm_Load(object sender, EventArgs e)
+        {
+            semesterType.SelectedIndex = 0;
         }
     }
 }

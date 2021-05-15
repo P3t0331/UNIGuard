@@ -37,6 +37,8 @@ namespace UNIGuard.Forms
             this.buttonConfirm = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.semesterType = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -78,7 +80,7 @@ namespace UNIGuard.Forms
             // 
             // buttonConfirm
             // 
-            this.buttonConfirm.Location = new System.Drawing.Point(317, 119);
+            this.buttonConfirm.Location = new System.Drawing.Point(315, 138);
             this.buttonConfirm.Name = "buttonConfirm";
             this.buttonConfirm.Size = new System.Drawing.Size(75, 23);
             this.buttonConfirm.TabIndex = 4;
@@ -89,7 +91,7 @@ namespace UNIGuard.Forms
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(12, 119);
+            this.buttonCancel.Location = new System.Drawing.Point(12, 138);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 5;
@@ -109,11 +111,36 @@ namespace UNIGuard.Forms
             this.errorLabel.Text = "Start date has to be lower";
             this.errorLabel.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Semester Type:";
+            // 
+            // comboBox1
+            // 
+            this.semesterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.semesterType.FormattingEnabled = true;
+            this.semesterType.Items.AddRange(new object[] {
+            "Spring",
+            "Winter"});
+            this.semesterType.Location = new System.Drawing.Point(190, 99);
+            this.semesterType.MaxDropDownItems = 2;
+            this.semesterType.Name = "comboBox1";
+            this.semesterType.Size = new System.Drawing.Size(200, 21);
+            this.semesterType.TabIndex = 2;
+            // 
             // SemesterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 154);
+            this.ClientSize = new System.Drawing.Size(404, 169);
+            this.Controls.Add(this.semesterType);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonConfirm);
@@ -128,6 +155,7 @@ namespace UNIGuard.Forms
             this.Name = "SemesterForm";
             this.Text = "SemesterForm";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.SemesterForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,5 +170,7 @@ namespace UNIGuard.Forms
         private System.Windows.Forms.Button buttonConfirm;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox semesterType;
     }
 }
