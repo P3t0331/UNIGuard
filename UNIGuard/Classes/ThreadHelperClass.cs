@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace UNIGuard.Classes
 {
@@ -60,6 +55,32 @@ namespace UNIGuard.Classes
             else
             {
                 ctrl.Enabled = true;
+            }
+
+        }
+
+        public static void CheckCheckBox(Form form, CheckBox ctrl)
+        {
+            if (ctrl.InvokeRequired)
+            {
+                ctrl.Invoke(new MethodInvoker(delegate { ctrl.Checked = true; }));
+            }
+            else
+            {
+                ctrl.Checked = true;
+            }
+
+        }
+
+        public static void UncheckCheckBox(Form form, CheckBox ctrl)
+        {
+            if (ctrl.InvokeRequired)
+            {
+                ctrl.Invoke(new MethodInvoker(delegate { ctrl.Checked = false; }));
+            }
+            else
+            {
+                ctrl.Checked = false;
             }
 
         }

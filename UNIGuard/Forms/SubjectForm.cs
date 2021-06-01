@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 
+using UniGuardClassLibrary;
+
 namespace UNIGuard.Forms
 {
     public partial class SubjectInput : Form
     {
-        private List<(string, DateTime, DateTime)> semesters = new List<(string, DateTime, DateTime)>();
+        private List<SemesterData> semesters = new List<SemesterData>();
 
         public SubjectInput()
         {
             InitializeComponent();
+            
         }
-
         private async void Form1_LoadAsync(object sender, EventArgs e)
         {
             await LoadListBoxAsync();
@@ -32,28 +30,17 @@ namespace UNIGuard.Forms
         {
             if (semesters.Count != 0)
             {
-                startDateLabel.Text = semesters[semesterPicker.SelectedIndex].Item2.ToShortDateString();
-                endDateLabel.Text = semesters[semesterPicker.SelectedIndex].Item3.ToShortDateString();
+                startDateLabel.Text = semesters[semesterPicker.SelectedIndex].StartDate.ToShortDateString();
+                endDateLabel.Text = semesters[semesterPicker.SelectedIndex].EndDate.ToShortDateString();
             }
         }
 
         private async Task LoadListBoxAsync()
         {
-            var path = Environment.CurrentDirectory + "\\Data\\SemesterData.csv";
-            using (var reader = new StreamReader(path))
+            semesters = await SqlCommands.GetAllSemesters();
+            foreach (var semester in semesters)
             {
-                var line = await reader.ReadLineAsync();
-                while (line != null)
-                {
-                    var lineContent = line.Split(',');
-
-                    var semesterType = lineContent[0];
-                    var startDate = DateTime.Parse(lineContent[1]);
-                    var endDate = DateTime.Parse(lineContent[2]);
-                    semesters.Add((semesterType, startDate, endDate));
-                    semesterPicker.Items.Add($"{semesterType} {startDate.Year}");
-                    line = await reader.ReadLineAsync();
-                }
+                semesterPicker.Items.Add($"{semester.SemesterType} {semester.StartDate.Year}");
             }
         }
 
@@ -128,6 +115,8 @@ namespace UNIGuard.Forms
                     var subjectName = site.DocumentNode.SelectSingleNode("//*[@id=\"app_content\"]/h2").InnerText; 
                     subjectName = subjectName.Replace("&nbsp;", " ");
                     var subjectEndings = site.DocumentNode.SelectSingleNode("//*[@id=\"app_content\"]/dl/dd[1]/text()[1]").InnerText;
+                    var extentSplitted = subjectEndings.Split('/');
+                    checkSubjectExtent(extentSplitted[0], extentSplitted[1]);
                     Classes.ThreadHelperClass.SetText(this, subjectNameTextBox, subjectName);
                     Classes.ThreadHelperClass.SetText(this, subjectEndTextBox, subjectEndings);
                     Classes.ThreadHelperClass.EnableElement(this, saveButton);
@@ -138,7 +127,30 @@ namespace UNIGuard.Forms
                     Classes.ThreadHelperClass.SetText(this, subjectNameTextBox, errorText);
                     Classes.ThreadHelperClass.SetText(this, subjectEndTextBox, "");
                     Classes.ThreadHelperClass.DisableElement(this, saveButton);
+                    Classes.ThreadHelperClass.UncheckCheckBox(this, lectureCheckBox);
+                    Classes.ThreadHelperClass.UncheckCheckBox(this, seminarCheckBox);
                 }
+            }
+        }
+
+        private void checkSubjectExtent(string lecture, string seminar)
+        {
+            if (lecture != "0")
+            {
+                Classes.ThreadHelperClass.CheckCheckBox(this, lectureCheckBox);
+            }
+            else
+            {
+                Classes.ThreadHelperClass.UncheckCheckBox(this, lectureCheckBox);
+            }
+
+            if (seminar != "0")
+            {
+                Classes.ThreadHelperClass.CheckCheckBox(this, seminarCheckBox);
+            }
+            else
+            {
+                Classes.ThreadHelperClass.UncheckCheckBox(this, seminarCheckBox);
             }
         }
 
@@ -147,6 +159,8 @@ namespace UNIGuard.Forms
             saveButton.Enabled = false;
             subjectNameTextBox.Enabled = false;
             subjectEndTextBox.Enabled = false;
+            lectureCheckBox.Enabled = false;
+            seminarCheckBox.Enabled = false;
             await Task.Run(() => CheckSubjectAsync());
         }
 
@@ -155,6 +169,8 @@ namespace UNIGuard.Forms
             saveButton.Enabled = true;
             subjectNameTextBox.Enabled = true;
             subjectEndTextBox.Enabled = true;
+            lectureCheckBox.Enabled = true;
+            seminarCheckBox.Enabled = true;
         }
     }
 }

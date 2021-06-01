@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UniGuardClassLibrary;
 
 namespace UNIGuard.Forms
 {
@@ -29,12 +23,15 @@ namespace UNIGuard.Forms
 
         private async Task saveSemesterAsync()
         {
+            /*
             var path = Environment.CurrentDirectory + "\\Data\\SemesterData.csv";
             using (var writer = new StreamWriter(path, true))
             {
                 await writer.WriteLineAsync($"{semesterType.Text},{startDatePicker.Value.ToShortDateString()}" +
                     $",{endDatePicker.Value.ToShortDateString()}");
             }
+            */
+            await SqlCommands.AddSemester(semesterType.Text, startDatePicker.Value, endDatePicker.Value);
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

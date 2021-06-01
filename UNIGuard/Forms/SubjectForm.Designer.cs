@@ -160,6 +160,7 @@ namespace UNIGuard.Forms
             // lectureCheckBox
             // 
             this.lectureCheckBox.AutoSize = true;
+            this.lectureCheckBox.Enabled = false;
             this.lectureCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lectureCheckBox.Location = new System.Drawing.Point(15, 278);
             this.lectureCheckBox.Name = "lectureCheckBox";
@@ -225,6 +226,7 @@ namespace UNIGuard.Forms
             // seminarCheckBox
             // 
             this.seminarCheckBox.AutoSize = true;
+            this.seminarCheckBox.Enabled = false;
             this.seminarCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seminarCheckBox.Location = new System.Drawing.Point(16, 405);
             this.seminarCheckBox.Name = "seminarCheckBox";
