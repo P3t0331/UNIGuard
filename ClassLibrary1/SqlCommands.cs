@@ -28,5 +28,25 @@ namespace UniGuardClassLibrary
                 
             }
         } 
+
+        public static async Task AddSubject(string subjectCode, int semesterId)
+        {
+            using (var db = new UniGuardDbContext())
+            {
+                var subject = new SubjectData { SemesterName = subjectCode, SemesterId = semesterId };
+                await db.SubjectData.AddAsync(subject);
+                await db.SaveChangesAsync();
+
+            }
+        }
+
+        public static async Task<List<SubjectData>> GetAllSubjects()
+        {
+            using (var db = new UniGuardDbContext())
+            {
+                var result = await db.SubjectData.ToListAsync();
+                return result;
+            }
+        }
     }
 }

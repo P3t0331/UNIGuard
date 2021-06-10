@@ -22,5 +22,11 @@ namespace UNIGuard
             var semesterForm = new SemesterForm();
             semesterForm.ShowDialog();
         }
+
+        private void AssigmentInput_Click(object sender, EventArgs e)
+        {
+            var assigmentForm = new AssigmentForm();
+            assigmentForm.ShowDialog();
+        }
     }
 }

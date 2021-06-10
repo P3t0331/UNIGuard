@@ -65,17 +65,19 @@ namespace UNIGuard.Forms
             // 
             this.startDatePicker.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
             this.startDatePicker.CalendarTitleForeColor = System.Drawing.Color.Red;
-            this.startDatePicker.Location = new System.Drawing.Point(190, 9);
+            this.startDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.startDatePicker.Location = new System.Drawing.Point(223, 9);
             this.startDatePicker.Name = "startDatePicker";
-            this.startDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.startDatePicker.Size = new System.Drawing.Size(169, 20);
             this.startDatePicker.TabIndex = 2;
             this.startDatePicker.ValueChanged += new System.EventHandler(this.startDatePicker_ValueChanged);
             // 
             // endDatePicker
             // 
-            this.endDatePicker.Location = new System.Drawing.Point(190, 41);
+            this.endDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.endDatePicker.Location = new System.Drawing.Point(223, 40);
             this.endDatePicker.Name = "endDatePicker";
-            this.endDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.endDatePicker.Size = new System.Drawing.Size(167, 20);
             this.endDatePicker.TabIndex = 3;
             // 
             // buttonConfirm
@@ -104,7 +106,7 @@ namespace UNIGuard.Forms
             this.errorLabel.AutoSize = true;
             this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(203, 64);
+            this.errorLabel.Location = new System.Drawing.Point(220, 63);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(170, 17);
             this.errorLabel.TabIndex = 6;
@@ -121,7 +123,7 @@ namespace UNIGuard.Forms
             this.label3.TabIndex = 7;
             this.label3.Text = "Semester Type:";
             // 
-            // comboBox1
+            // semesterType
             // 
             this.semesterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.semesterType.FormattingEnabled = true;
@@ -130,7 +132,7 @@ namespace UNIGuard.Forms
             "Winter"});
             this.semesterType.Location = new System.Drawing.Point(190, 99);
             this.semesterType.MaxDropDownItems = 2;
-            this.semesterType.Name = "comboBox1";
+            this.semesterType.Name = "semesterType";
             this.semesterType.Size = new System.Drawing.Size(200, 21);
             this.semesterType.TabIndex = 2;
             // 

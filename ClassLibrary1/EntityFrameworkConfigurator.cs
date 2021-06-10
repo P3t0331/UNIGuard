@@ -12,6 +12,7 @@ namespace UniGuardClassLibrary
         private string connectionString = @"server=(localdb)\MSSQLLocalDB;Initial Catalog=UniGuardDB; Integrated Security = true";
 
         public DbSet<SemesterData> SemesterData { get; set; }
+        public DbSet<SubjectData> SubjectData { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

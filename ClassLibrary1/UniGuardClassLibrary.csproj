@@ -155,7 +155,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SemesterData.cs" />
+    <Compile Include="Datasets\SemesterData.cs" />
+    <Compile Include="Datasets\SubjectData.cs" />
     <Compile Include="EntityFrameworkConfigurator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlCommands.cs" />

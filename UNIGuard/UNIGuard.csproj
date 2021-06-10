@@ -177,6 +177,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ThreadHelperClass.cs" />
+    <Compile Include="Forms\AssigmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AssigmentForm.Designer.cs">
+      <DependentUpon>AssigmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SemesterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AssigmentForm.resx">
+      <DependentUpon>AssigmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SemesterForm.resx">
       <DependentUpon>SemesterForm.cs</DependentUpon>
     </EmbeddedResource>

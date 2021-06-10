@@ -32,6 +32,7 @@ namespace UNIGuard
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.assigmentInput = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -60,12 +61,26 @@ namespace UNIGuard
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.NewSemesterButton_Click);
             // 
+            // assigmentInput
+            // 
+            this.assigmentInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.assigmentInput.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.assigmentInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assigmentInput.Location = new System.Drawing.Point(65, 143);
+            this.assigmentInput.Name = "assigmentInput";
+            this.assigmentInput.Size = new System.Drawing.Size(160, 51);
+            this.assigmentInput.TabIndex = 2;
+            this.assigmentInput.Text = "Add new Assigment";
+            this.assigmentInput.UseVisualStyleBackColor = true;
+            this.assigmentInput.Click += new System.EventHandler(this.AssigmentInput_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(299, 450);
+            this.Controls.Add(this.assigmentInput);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -81,6 +96,7 @@ namespace UNIGuard
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button assigmentInput;
     }
 }
 
