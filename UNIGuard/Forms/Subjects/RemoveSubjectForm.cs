@@ -49,7 +49,7 @@ namespace UNIGuard.Forms.Subjects
             Subjects = await SqlCommands.GetAllSubjectsInSemesterAsync(Semesters[SemesterBox.SelectedIndex].SemesterId);
             foreach (var subject in Subjects)
             {
-                SubjectBox.Items.Add($"{subject.SemesterName}");
+                SubjectBox.Items.Add($"{subject.SubjectCode}");
             }
             if (SubjectBox.Items.Count > 0)
             {

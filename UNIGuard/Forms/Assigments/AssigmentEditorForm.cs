@@ -33,6 +33,10 @@ namespace UNIGuard.Forms
             {
                 SemesterBox.SelectedIndex = 0;
             }
+            else
+            {
+                EditButton.Enabled = false;
+            }
 
         }
 
@@ -44,13 +48,17 @@ namespace UNIGuard.Forms
             Subjects = await SqlCommands.GetAllSubjectsInSemesterAsync(Semesters[SemesterBox.SelectedIndex].SemesterId);
             foreach (var subject in Subjects)
             {
-                SubjectBox.Items.Add($"{subject.SemesterName}");
+                SubjectBox.Items.Add($"{subject.SubjectFaculty.Trim()}: {subject.SubjectName.Trim()}");
             }
             if (SubjectBox.Items.Count > 0 )
             {
                 SubjectBox.SelectedIndex = 0;
             }
-            
+            else
+            {
+                EditButton.Enabled = false;
+            }
+
         }
 
         private async void SubjectBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,16 +76,18 @@ namespace UNIGuard.Forms
             if (AssigmentBox.Items.Count > 0)
             {
                 groupBox1.Visible = true;
+                EditButton.Enabled = true;
             } 
             else
             {
                 groupBox1.Visible = false;
+                EditButton.Enabled = false;
             }
         }
 
         private void AssigmentBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AssigmentName.Text = AssigmentBox.Text;
+            AssigmentName.Text = AssigmentBox.Text.Trim();
             if (Assigments[AssigmentBox.SelectedIndex].AssigmentState.Contains("Not Started"))
             {
                 AssigmentState.SelectedIndex = 0;
@@ -93,6 +103,10 @@ namespace UNIGuard.Forms
             else if (Assigments[AssigmentBox.SelectedIndex].AssigmentState.Contains("Handed over"))
             {
                 AssigmentState.SelectedIndex = 3;
+            }
+            else if (Assigments[AssigmentBox.SelectedIndex].AssigmentState.Contains("Reminder"))
+            {
+                AssigmentState.SelectedIndex = 4;
             }
             AssigmentEndDate.Value = Assigments[AssigmentBox.SelectedIndex].AssigmentEndDate;
             AssigmentEndTime.Value = Assigments[AssigmentBox.SelectedIndex].AssigmentEndDate;

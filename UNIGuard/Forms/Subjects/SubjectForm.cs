@@ -67,7 +67,8 @@ namespace UNIGuard.Forms
         {
             var chosenSemester = Semesters[semesterPicker.SelectedIndex];
             var code = subjectCodeTextBox.Text;
-            await SqlCommands.AddSubjectAsync(code, chosenSemester.SemesterId);
+            var facultyCode = facultyPicker.Text.Split('-')[0];
+            await SqlCommands.AddSubjectAsync(code,subjectNameTextBox.Text, facultyCode, chosenSemester.SemesterId);
         }
 
         private void CheckSubjectAsync()

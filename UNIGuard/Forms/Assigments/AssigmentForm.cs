@@ -44,7 +44,7 @@ namespace UNIGuard.Forms
             {
                 if (subject.SemesterId == Semesters[SemesterPicker.SelectedIndex].SemesterId)
                 {
-                    SubjectPicker.Items.Add(subject.SemesterName);
+                    SubjectPicker.Items.Add($"{subject.SubjectFaculty.Trim()}: {subject.SubjectName.Trim()}");
                 }
             }
             if (SubjectPicker.Items.Count > 0)

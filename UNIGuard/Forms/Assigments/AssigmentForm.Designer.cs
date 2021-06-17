@@ -36,15 +36,15 @@ namespace UNIGuard.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.AssigmentGroupBox = new System.Windows.Forms.GroupBox();
+            this.AssigmentEndTime = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.AssigmentStateList = new System.Windows.Forms.ComboBox();
             this.AssigmentNameTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.AssigmentEndDate = new System.Windows.Forms.DateTimePicker();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.WarningLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.AssigmentStateList = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.AssigmentEndTime = new System.Windows.Forms.DateTimePicker();
             this.AssigmentGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,6 +125,39 @@ namespace UNIGuard.Forms
             this.AssigmentGroupBox.TabStop = false;
             this.AssigmentGroupBox.Visible = false;
             // 
+            // AssigmentEndTime
+            // 
+            this.AssigmentEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.AssigmentEndTime.Location = new System.Drawing.Point(167, 81);
+            this.AssigmentEndTime.Name = "AssigmentEndTime";
+            this.AssigmentEndTime.Size = new System.Drawing.Size(296, 20);
+            this.AssigmentEndTime.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 79);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(155, 20);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Assigment end date:";
+            // 
+            // AssigmentStateList
+            // 
+            this.AssigmentStateList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AssigmentStateList.FormattingEnabled = true;
+            this.AssigmentStateList.Items.AddRange(new object[] {
+            "Not Started",
+            "In Progress",
+            "Completed",
+            "Handed over",
+            "Reminder"});
+            this.AssigmentStateList.Location = new System.Drawing.Point(167, 110);
+            this.AssigmentStateList.Name = "AssigmentStateList";
+            this.AssigmentStateList.Size = new System.Drawing.Size(296, 21);
+            this.AssigmentStateList.TabIndex = 12;
+            // 
             // AssigmentNameTextBox
             // 
             this.AssigmentNameTextBox.Location = new System.Drawing.Point(167, 16);
@@ -132,6 +165,16 @@ namespace UNIGuard.Forms
             this.AssigmentNameTextBox.Size = new System.Drawing.Size(296, 20);
             this.AssigmentNameTextBox.TabIndex = 8;
             this.AssigmentNameTextBox.TextChanged += new System.EventHandler(this.subjectCodeTextBox_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 111);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(111, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Choose State:";
             // 
             // AssigmentEndDate
             // 
@@ -173,48 +216,6 @@ namespace UNIGuard.Forms
             this.WarningLabel.Size = new System.Drawing.Size(460, 20);
             this.WarningLabel.TabIndex = 10;
             this.WarningLabel.Text = "There was no subject found in this semester! Add it first!";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 20);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Choose State:";
-            // 
-            // AssigmentStateList
-            // 
-            this.AssigmentStateList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AssigmentStateList.FormattingEnabled = true;
-            this.AssigmentStateList.Items.AddRange(new object[] {
-            "Not Started",
-            "In Progress",
-            "Completed",
-            "Handed over"});
-            this.AssigmentStateList.Location = new System.Drawing.Point(167, 110);
-            this.AssigmentStateList.Name = "AssigmentStateList";
-            this.AssigmentStateList.Size = new System.Drawing.Size(296, 21);
-            this.AssigmentStateList.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 79);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(155, 20);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Assigment end date:";
-            // 
-            // AssigmentEndTime
-            // 
-            this.AssigmentEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.AssigmentEndTime.Location = new System.Drawing.Point(167, 81);
-            this.AssigmentEndTime.Name = "AssigmentEndTime";
-            this.AssigmentEndTime.Size = new System.Drawing.Size(296, 20);
-            this.AssigmentEndTime.TabIndex = 14;
             // 
             // AssigmentForm
             // 

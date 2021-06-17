@@ -134,7 +134,8 @@ namespace UNIGuard.Forms
             "Not Started",
             "In Progress",
             "Completed",
-            "Handed over"});
+            "Handed over",
+            "Reminder"});
             this.AssigmentState.Location = new System.Drawing.Point(241, 68);
             this.AssigmentState.Name = "AssigmentState";
             this.AssigmentState.Size = new System.Drawing.Size(229, 21);

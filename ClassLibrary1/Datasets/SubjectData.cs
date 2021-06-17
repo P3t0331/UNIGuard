@@ -12,7 +12,9 @@ namespace UniGuardClassLibrary
     {
         [Key]
         public int Id { get; set; }
-        public string SemesterName { get; set; }
+        public string SubjectCode { get; set; }
+        public string SubjectName { get; set; }
+        public string SubjectFaculty { get; set; }
         public int SemesterId { get; set; }
     }
 }

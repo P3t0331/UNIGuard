@@ -30,11 +30,13 @@ namespace UniGuardClassLibrary
             }
         } 
 
-        public static async Task AddSubjectAsync(string subjectCode, int semesterId)
+        public static async Task AddSubjectAsync(string subjectCode, string subjectName,
+            string subjectFaculty, int semesterId)
         {
             using (var db = new UniGuardDbContext())
             {
-                var subject = new SubjectData { SemesterName = subjectCode, SemesterId = semesterId };
+                var subject = new SubjectData { SubjectCode = subjectCode, SubjectName = subjectName,
+                    SubjectFaculty = subjectFaculty, SemesterId = semesterId };
                 await db.SubjectData.AddAsync(subject);
                 await db.SaveChangesAsync();
 
@@ -127,7 +129,7 @@ namespace UniGuardClassLibrary
         {
             using (var db = new UniGuardDbContext())
             {
-                var result = db.SubjectData.Where(x => x.Id == subjectId).First().SemesterName;
+                var result = db.SubjectData.Where(x => x.Id == subjectId).First().SubjectCode;
                 return result;
 
             }
