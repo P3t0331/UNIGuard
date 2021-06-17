@@ -9,14 +9,15 @@ namespace UniGuardClassLibrary
 {
     public class UniGuardDbContext : DbContext
     {
-        private string connectionString = @"server=(localdb)\MSSQLLocalDB;Initial Catalog=UniGuardDB; Integrated Security = true";
+        private readonly string ConnectionString = System.IO.File.ReadAllText(@"ConnectionString.txt");
 
         public DbSet<SemesterData> SemesterData { get; set; }
         public DbSet<SubjectData> SubjectData { get; set; }
+        public DbSet<AssigmentData> AssigmentData { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseSqlServer(ConnectionString);
             base.OnConfiguring(optionsBuilder);
         }
 

@@ -28,5 +28,29 @@ namespace UNIGuard
             var assigmentForm = new AssigmentForm();
             assigmentForm.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var editAssigmentForm = new AssigmentEditorForm();
+            editAssigmentForm.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var removeSemesterForm = new Forms.Semesters.RemoveSemesterForm();
+            removeSemesterForm.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var removeAssigmentForm = new Forms.Assigments.RemoveAssigmentForm();
+            removeAssigmentForm.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var removeSubjectForm = new Forms.Subjects.RemoveSubjectForm();
+            removeSubjectForm.ShowDialog();
+        }
     }
 }

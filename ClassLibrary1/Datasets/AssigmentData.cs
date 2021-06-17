@@ -8,11 +8,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UniGuardClassLibrary
 {
-    public class SubjectData
+    public class AssigmentData
     {
         [Key]
-        public int Id { get; set; }
-        public string SemesterName { get; set; }
-        public int SemesterId { get; set; }
+        public int AssigmentId { get; set; }
+        public string AssigmentName { get; set; }
+        public string AssigmentState { get; set; }
+        public DateTime AssigmentEndDate { get; set; }
+        public int SubjectId { get; set; }
     }
 }

@@ -37,7 +37,7 @@ namespace UNIGuard.Forms
 
         private async Task LoadListBoxAsync()
         {
-            Semesters = await SqlCommands.GetAllSemesters();
+            Semesters = await SqlCommands.GetAllSemestersAsync();
             foreach (var semester in Semesters)
             {
                 semesterPicker.Items.Add($"{semester.SemesterType} {semester.StartDate.Year}");
@@ -51,15 +51,23 @@ namespace UNIGuard.Forms
 
         private async void SaveButton_ClickAsync(object sender, EventArgs e)
         {
-            await SaveSubjectAsync();
-            Close();
+            if (subjectCodeTextBox.Text == "")
+            {
+                MessageBox.Show("Subject code is empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                await SaveSubjectAsync();
+                Close();
+            }
+
         }
 
         private async Task SaveSubjectAsync()
         {
             var chosenSemester = Semesters[semesterPicker.SelectedIndex];
             var code = subjectCodeTextBox.Text;
-            await SqlCommands.AddSubject(code, chosenSemester.SemesterId);
+            await SqlCommands.AddSubjectAsync(code, chosenSemester.SemesterId);
         }
 
         private void CheckSubjectAsync()

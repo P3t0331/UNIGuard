@@ -177,22 +177,46 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ThreadHelperClass.cs" />
-    <Compile Include="Forms\AssigmentForm.cs">
+    <Compile Include="Forms\Assigments\AssigmentEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AssigmentForm.Designer.cs">
+    <Compile Include="Forms\Assigments\AssigmentEditorForm.Designer.cs">
+      <DependentUpon>AssigmentEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Assigments\AssigmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Assigments\AssigmentForm.Designer.cs">
       <DependentUpon>AssigmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SemesterForm.cs">
+    <Compile Include="Forms\Assigments\RemoveAssigmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SemesterForm.Designer.cs">
+    <Compile Include="Forms\Assigments\RemoveAssigmentForm.Designer.cs">
+      <DependentUpon>RemoveAssigmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Semesters\RemoveSemesterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Semesters\RemoveSemesterForm.Designer.cs">
+      <DependentUpon>RemoveSemesterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Semesters\SemesterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Semesters\SemesterForm.Designer.cs">
       <DependentUpon>SemesterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SubjectForm.cs">
+    <Compile Include="Forms\Subjects\RemoveSubjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SubjectForm.Designer.cs">
+    <Compile Include="Forms\Subjects\RemoveSubjectForm.Designer.cs">
+      <DependentUpon>RemoveSubjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Subjects\SubjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Subjects\SubjectForm.Designer.cs">
       <DependentUpon>SubjectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UniGuard.cs">
@@ -203,13 +227,25 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AssigmentForm.resx">
+    <EmbeddedResource Include="Forms\Assigments\AssigmentEditorForm.resx">
+      <DependentUpon>AssigmentEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Assigments\AssigmentForm.resx">
       <DependentUpon>AssigmentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SemesterForm.resx">
+    <EmbeddedResource Include="Forms\Assigments\RemoveAssigmentForm.resx">
+      <DependentUpon>RemoveAssigmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Semesters\RemoveSemesterForm.resx">
+      <DependentUpon>RemoveSemesterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Semesters\SemesterForm.resx">
       <DependentUpon>SemesterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SubjectForm.resx">
+    <EmbeddedResource Include="Forms\Subjects\RemoveSubjectForm.resx">
+      <DependentUpon>RemoveSubjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Subjects\SubjectForm.resx">
       <DependentUpon>SubjectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UniGuard.resx">
@@ -256,6 +292,7 @@
       <Name>UniGuardClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

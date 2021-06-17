@@ -31,7 +31,7 @@ namespace UNIGuard.Forms
                     $",{endDatePicker.Value.ToShortDateString()}");
             }
             */
-            await SqlCommands.AddSemester(semesterType.Text, startDatePicker.Value, endDatePicker.Value);
+            await SqlCommands.AddSemesterAsync(semesterType.Text, startDatePicker.Value, endDatePicker.Value);
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

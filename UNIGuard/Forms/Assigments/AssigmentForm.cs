@@ -23,8 +23,8 @@ namespace UNIGuard.Forms
 
         private async void AssigmentForm_Load(object sender, EventArgs e)
         {
-            Semesters = await SqlCommands.GetAllSemesters();
-            Subjects = await SqlCommands.GetAllSubjects();
+            Semesters = await SqlCommands.GetAllSemestersAsync();
+            AssigmentStateList.SelectedIndex = 0;
 
             foreach (var semester in Semesters)
             {
@@ -36,9 +36,10 @@ namespace UNIGuard.Forms
             }
         }
 
-        private void SemesterPicker_SelectedIndexChanged(object sender, EventArgs e)
+        private async void SemesterPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             SubjectPicker.Items.Clear();
+            Subjects = await SqlCommands.GetAllSubjectsInSemesterAsync(Semesters[SemesterPicker.SelectedIndex].SemesterId);
             foreach (var subject in Subjects)
             {
                 if (subject.SemesterId == Semesters[SemesterPicker.SelectedIndex].SemesterId)
@@ -51,7 +52,7 @@ namespace UNIGuard.Forms
                 SubjectPicker.Enabled = true;
                 AssigmentGroupBox.Visible = true;
                 SubjectPicker.SelectedIndex = 0;
-                subjectCodeTextBox.Text = "";
+                AssigmentNameTextBox.Text = "";
                 WarningLabel.Visible = false;
             } else
             {
@@ -69,13 +70,28 @@ namespace UNIGuard.Forms
 
         private void subjectCodeTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (subjectCodeTextBox.Text.Length != 0)
+            if (AssigmentNameTextBox.Text.Length != 0)
             {
                 SaveButton.Enabled = true;
             }
             else
             {
                 SaveButton.Enabled = false;
+            }
+        }
+
+        private async void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (AssigmentNameTextBox.Text == "")
+            {
+                MessageBox.Show("Subject code is empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DateTime time = AssigmentEndDate.Value.Date + AssigmentEndTime.Value.TimeOfDay;
+                await SqlCommands.AddAssigmentAsync(AssigmentNameTextBox.Text, AssigmentStateList.Text,
+                    Subjects[SubjectPicker.SelectedIndex].Id, time);
+                Close();
             }
         }
     }
