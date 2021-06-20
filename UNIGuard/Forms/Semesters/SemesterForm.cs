@@ -16,21 +16,13 @@ namespace UNIGuard.Forms
 
         private async void ConfirmButton_Click(object sender, EventArgs e)
         {
-            await saveSemesterAsync();
+            await SaveSemesterAsync();
             MessageBox.Show("Semester successfully added.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
         }
 
-        private async Task saveSemesterAsync()
+        private async Task SaveSemesterAsync()
         {
-            /*
-            var path = Environment.CurrentDirectory + "\\Data\\SemesterData.csv";
-            using (var writer = new StreamWriter(path, true))
-            {
-                await writer.WriteLineAsync($"{semesterType.Text},{startDatePicker.Value.ToShortDateString()}" +
-                    $",{endDatePicker.Value.ToShortDateString()}");
-            }
-            */
             await SqlCommands.AddSemesterAsync(semesterType.Text, startDatePicker.Value, endDatePicker.Value);
         }
 
@@ -39,12 +31,12 @@ namespace UNIGuard.Forms
             Close();
         }
 
-        private void startDatePicker_ValueChanged(object sender, EventArgs e)
+        private void StartDatePicker_ValueChanged(object sender, EventArgs e)
         {
             UpdateButton();
         }
 
-        private void endDatePicker_ValueChanged(object sender, EventArgs e)
+        private void EndDatePicker_ValueChanged(object sender, EventArgs e)
         {
             UpdateButton();
         }

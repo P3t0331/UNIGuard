@@ -22,7 +22,17 @@ namespace UNIGuard.Forms
         private async void Form1_LoadAsync(object sender, EventArgs e)
         {
             await LoadListBoxAsync();
-            semesterPicker.SelectedIndex = 0;
+            if (semesterPicker.Items.Count > 0)
+            {
+                semesterPicker.SelectedIndex = 0;
+                autoFillButton.Enabled = true;
+                manualAddButton.Enabled = true;
+            }
+            else
+            {
+                autoFillButton.Enabled = false;
+                manualAddButton.Enabled = false;
+            }
             facultyPicker.SelectedIndex = 7;
         }
 

@@ -68,7 +68,7 @@ namespace UNIGuard.Forms
             Close();
         }
 
-        private void subjectCodeTextBox_TextChanged(object sender, EventArgs e)
+        private void SubjectCodeTextBox_TextChanged(object sender, EventArgs e)
         {
             if (AssigmentNameTextBox.Text.Length != 0)
             {

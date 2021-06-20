@@ -15,6 +15,7 @@ namespace UniGuardClassLibrary
         public string AssigmentName { get; set; }
         public string AssigmentState { get; set; }
         public DateTime AssigmentEndDate { get; set; }
+        [ForeignKey("SubjectData")]
         public int SubjectId { get; set; }
     }
 }

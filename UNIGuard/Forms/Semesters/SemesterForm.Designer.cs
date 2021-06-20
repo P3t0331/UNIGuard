@@ -70,7 +70,7 @@ namespace UNIGuard.Forms
             this.startDatePicker.Name = "startDatePicker";
             this.startDatePicker.Size = new System.Drawing.Size(169, 20);
             this.startDatePicker.TabIndex = 2;
-            this.startDatePicker.ValueChanged += new System.EventHandler(this.startDatePicker_ValueChanged);
+            this.startDatePicker.ValueChanged += new System.EventHandler(this.StartDatePicker_ValueChanged);
             // 
             // endDatePicker
             // 
@@ -155,7 +155,7 @@ namespace UNIGuard.Forms
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SemesterForm";
-            this.Text = "SemesterForm";
+            this.Text = "Add semester";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.SemesterForm_Load);
             this.ResumeLayout(false);

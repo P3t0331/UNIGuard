@@ -15,6 +15,8 @@ namespace UniGuardClassLibrary
         public string SubjectCode { get; set; }
         public string SubjectName { get; set; }
         public string SubjectFaculty { get; set; }
+
+        [ForeignKey("SemesterData")]
         public int SemesterId { get; set; }
     }
 }

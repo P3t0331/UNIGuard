@@ -164,7 +164,7 @@ namespace UNIGuard.Forms
             this.AssigmentNameTextBox.Name = "AssigmentNameTextBox";
             this.AssigmentNameTextBox.Size = new System.Drawing.Size(296, 20);
             this.AssigmentNameTextBox.TabIndex = 8;
-            this.AssigmentNameTextBox.TextChanged += new System.EventHandler(this.subjectCodeTextBox_TextChanged);
+            this.AssigmentNameTextBox.TextChanged += new System.EventHandler(this.SubjectCodeTextBox_TextChanged);
             // 
             // label4
             // 
@@ -232,7 +232,7 @@ namespace UNIGuard.Forms
             this.Controls.Add(this.SemesterLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AssigmentForm";
-            this.Text = "AssigmentForm";
+            this.Text = "Add Assigment";
             this.Load += new System.EventHandler(this.AssigmentForm_Load);
             this.AssigmentGroupBox.ResumeLayout(false);
             this.AssigmentGroupBox.PerformLayout();
